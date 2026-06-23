@@ -490,7 +490,7 @@ export default function ProductMachinePartsPage() {
               </div>
             </div>
 
-            <div className="w-full lg:basis-2/5">
+            <div className="w-full lg:basis-2/5 min-[1024px]:max-[1365px]:-mt-10">
               <ImageSlider key={product.id} images={product.images} />
             </div>
           </div>
