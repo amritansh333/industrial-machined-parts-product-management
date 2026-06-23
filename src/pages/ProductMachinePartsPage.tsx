@@ -250,7 +250,7 @@ function ImageSlider({ images }: { images: string[] }) {
       <div className="relative bg-white border border-[#276A96]/15 shadow-2xl rounded-2xl p-3 overflow-hidden">
         <span className="absolute top-5 left-5 z-10 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/95 border border-[#276A96]/15 shadow-sm text-[10px] font-bold uppercase tracking-wider text-[#276A96]">
           <ShieldCheck className="w-3 h-3 text-[#279ECE]" />
-          Industrial Grade
+          Machine Plastic Parts
         </span>
 
         <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-[#F8FAFC]">
@@ -474,7 +474,7 @@ export default function ProductMachinePartsPage() {
               </div>
 
               <p className="text-xs font-bold uppercase tracking-widest text-[#276A96] mb-4">
-                Key Features
+                Technical Characteristics
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-9">
                 {product.technicalCharacteristics.map((f) => (
@@ -529,13 +529,14 @@ export default function ProductMachinePartsPage() {
       {/* DETAIL SECTIONS (dynamic per selected product) */}
       <section key={`detail-${product.id}`} className="max-w-7xl mx-auto px-6 py-16 fade-in-section">
         {/* Technical Characteristics */}
-        <div className="mb-16">
-          <SectionEyebrow icon={ShieldCheck}>Technical Characteristics</SectionEyebrow>
-          <h3 className="text-2xl font-bold text-[#0F2A3D] mb-7">
-            Built for Performance &amp; Durability
-          </h3>
-          <TechnicalCharacteristics items={product.technicalCharacteristics} />
+
+        {/* Specifications */}
+        <div className= "mb-16">
+          <SectionEyebrow icon={Layers}>Specifications</SectionEyebrow>
+          <h3 className="text-2xl font-bold text-[#0F2A3D] mb-7">Technical Data Sheet</h3>
+          <SpecificationTable specs={product.specifications} />
         </div>
+        
 
         {/* Applications */}
         <div className="mb-16 p-8 sm:p-10 bg-[#F8FAFC] rounded-2xl border border-[#276A96]/10">
@@ -544,12 +545,7 @@ export default function ProductMachinePartsPage() {
           <ApplicationsGrid items={product.applications} />
         </div>
 
-        {/* Specifications */}
-        <div>
-          <SectionEyebrow icon={Layers}>Specifications</SectionEyebrow>
-          <h3 className="text-2xl font-bold text-[#0F2A3D] mb-7">Technical Data Sheet</h3>
-          <SpecificationTable specs={product.specifications} />
-        </div>
+        
       </section>
     </div>
   );
