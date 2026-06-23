@@ -344,23 +344,7 @@ function ProductTabs({
    TECHNICAL CHARACTERISTICS
 ==================================================== */
 
-function TechnicalCharacteristics({ items }: { items: string[] }) {
-  return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      {items.map((item) => (
-        <div
-          key={item}
-          className="flex items-start gap-3 p-4 bg-white border border-[#276A96]/12 rounded-xl hover:border-[#279ECE]/50 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
-        >
-          <span className="w-7 h-7 rounded-full bg-[#279ECE]/10 flex items-center justify-center shrink-0">
-            <CheckCircle2 className="w-4 h-4 text-[#279ECE]" />
-          </span>
-          <span className="text-sm font-medium text-[#1E293B] leading-snug pt-0.5">{item}</span>
-        </div>
-      ))}
-    </div>
-  );
-}
+
 
 /* ====================================================
    APPLICATIONS GRID
