@@ -89,7 +89,7 @@ const PRODUCT_MACHINE_PARTS: MachinePart[] = [
     shortDescription:
       "Precision-engineered POLYRIB Machine Plastic parts built for rigorous industrial machinery operation.",
     fullDescription:
-      "POLYRIB Machine Plastic Parts are designed to provide precision and are built for rigorous operation in industrial machinery from high-quality engineering plastics. They offer industrial machinery with greater durability, lower friction, and increased resistance to wear than traditional metal parts, thereby increasing efficiency while reducing weight and maintenance. Additionally, these parts are custom-made and fabricated to specific requirements, ensuring reliable performance under adverse operating conditions.",
+      "POLYRIB Machine Plastic Parts are designed to provide precision and are built for rigorous operation in industrial machinery from high-quality engineering plastics. They offer industrial machinery with greater durability, lower friction, and increased resistance to wear than traditional metal parts.",
     images: [
       "https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?q=80&w=1200&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1200&auto=format&fit=crop",
