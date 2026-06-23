@@ -443,8 +443,8 @@ export default function ProductMachinePartsPage() {
         <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#276A96]/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
-            <div className="w-full lg:basis-3/5">
+          <div className="flex flex-col md:flex-row gap-12 lg:gap-16 items-center">
+            <div className="w-full md:basis-3/5">
               <SectionEyebrow icon={Sparkles}>{PAGE_EYEBROW}</SectionEyebrow>
 
               <h1 className="text-3xl sm:text-4xl lg:text-[2.65rem] font-bold text-[#0F2A3D] mb-6 leading-tight">
