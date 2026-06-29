@@ -1,4 +1,13 @@
-import { useState, useEffect, useRef, type ComponentType, type ReactNode } from "react";
+import {
+  useState,
+  useEffect,
+  useRef,
+  type ComponentType,
+  type ReactNode,
+} from "react";
+
+import ProductSidebar from "../components/ProductSidebar";
+
 import {
   ChevronLeft,
   ChevronRight,
@@ -72,8 +81,14 @@ function buildPlaceholder(id: string, name: string, slug: string): MachinePart {
       "Packaging Machinery",
     ],
     specifications: [
-      { parameter: "Material Options", specification: "UHMWPE / Nylon / POM / HDPE / PP" },
-      { parameter: "Manufacturing Process", specification: "CNC Machining / Fabrication" },
+      {
+        parameter: "Material Options",
+        specification: "UHMWPE / Nylon / POM / HDPE / PP",
+      },
+      {
+        parameter: "Manufacturing Process",
+        specification: "CNC Machining / Fabrication",
+      },
       { parameter: "Tolerance", specification: "Precision / Custom" },
       { parameter: "Application", specification: "Industrial Machinery" },
     ],
@@ -114,8 +129,14 @@ const PRODUCT_MACHINE_PARTS: MachinePart[] = [
       "Custom industrial parts",
     ],
     specifications: [
-      { parameter: "Material Options", specification: "UHMWPE / Nylon / POM / HDPE / PP" },
-      { parameter: "Manufacturing Process", specification: "CNC Machining / Fabrication" },
+      {
+        parameter: "Material Options",
+        specification: "UHMWPE / Nylon / POM / HDPE / PP",
+      },
+      {
+        parameter: "Manufacturing Process",
+        specification: "CNC Machining / Fabrication",
+      },
       { parameter: "Tolerance", specification: "Precision / Custom" },
       { parameter: "Application", specification: "Industrial Machinery" },
     ],
@@ -151,7 +172,10 @@ const PRODUCT_MACHINE_PARTS: MachinePart[] = [
     ],
     specifications: [
       { parameter: "Material Options", specification: "HDPE / UHMWPE / PP" },
-      { parameter: "Manufacturing Process", specification: "CNC Machining / Thermoforming" },
+      {
+        parameter: "Manufacturing Process",
+        specification: "CNC Machining / Thermoforming",
+      },
       { parameter: "Tolerance", specification: "Standard / Custom" },
       { parameter: "Application", specification: "Agricultural Machinery" },
     ],
@@ -186,36 +210,79 @@ const PRODUCT_MACHINE_PARTS: MachinePart[] = [
       "Automation drive trains",
     ],
     specifications: [
-      { parameter: "Material Options", specification: "Acetal (POM) / Nylon / Cast Nylon" },
+      {
+        parameter: "Material Options",
+        specification: "Acetal (POM) / Nylon / Cast Nylon",
+      },
       { parameter: "Manufacturing Process", specification: "CNC Machining" },
       { parameter: "Tolerance", specification: "Precision (AGMA Grade)" },
-      { parameter: "Application", specification: "Power Transmission Machinery" },
+      {
+        parameter: "Application",
+        specification: "Power Transmission Machinery",
+      },
     ],
   },
-  buildPlaceholder("p-vibrating-screen", "P Vibrating Screen", "p-vibrating-screen"),
-  buildPlaceholder("plascon-sealing-strips", "Plascon Sealing Strips", "plascon-sealing-strips"),
-  buildPlaceholder("solution-for-headbox", "Solution for Headbox", "solution-for-headbox"),
+  buildPlaceholder(
+    "p-vibrating-screen",
+    "P Vibrating Screen",
+    "p-vibrating-screen",
+  ),
+  buildPlaceholder(
+    "plascon-sealing-strips",
+    "Plascon Sealing Strips",
+    "plascon-sealing-strips",
+  ),
+  buildPlaceholder(
+    "solution-for-headbox",
+    "Solution for Headbox",
+    "solution-for-headbox",
+  ),
   buildPlaceholder("plabott", "Plabott", "plabott"),
   buildPlaceholder("placoss", "Placoss", "placoss"),
   buildPlaceholder("plamacon", "Plamacon", "plamacon"),
   buildPlaceholder("plasb", "Plasb", "plasb"),
   buildPlaceholder("kaylon-gears", "Kaylon Gears", "kaylon-gears"),
-  buildPlaceholder("plascon-former-bottom-lip", "Plascon Former Bottom Lip", "plascon-former-bottom-lip"),
-  buildPlaceholder("metering-bar-holders", "Metering Bar Holders", "metering-bar-holders"),
-  buildPlaceholder("polyrib-car-stopper", "Polyrib Car Stopper", "polyrib-car-stopper"),
+  buildPlaceholder(
+    "plascon-former-bottom-lip",
+    "Plascon Former Bottom Lip",
+    "plascon-former-bottom-lip",
+  ),
+  buildPlaceholder(
+    "metering-bar-holders",
+    "Metering Bar Holders",
+    "metering-bar-holders",
+  ),
+  buildPlaceholder(
+    "polyrib-car-stopper",
+    "Polyrib Car Stopper",
+    "polyrib-car-stopper",
+  ),
   buildPlaceholder("plascreen", "Plascreen", "plascreen"),
   buildPlaceholder("ccn", "CCN", "ccn"),
 ];
 
-const APPLICATION_ICONS: IconType[] = [Factory, Package, UtensilsCrossed, Cog, Boxes, Layers];
+const APPLICATION_ICONS: IconType[] = [
+  Factory,
+  Package,
+  UtensilsCrossed,
+  Cog,
+  Boxes,
+  Layers,
+];
 
 /* ====================================================
    SECTION EYEBROW (shared label badge)
 ==================================================== */
 
-function SectionEyebrow({ icon: Icon, children }: { icon: IconType; children: ReactNode }) {
+function SectionEyebrow({
+  icon: Icon,
+  children,
+}: {
+  icon: IconType;
+  children: ReactNode;
+}) {
   return (
-    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#279ECE]/10 border border-[#279ECE]/20 mb-4">
+    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm bg-[#279ECE]/10 border border-[#279ECE]/20 mb-4">
       <Icon className="w-3.5 h-3.5 text-[#276A96]" />
       <span className="text-[11px] font-bold uppercase tracking-widest text-[#276A96]">
         {children}
@@ -241,19 +308,20 @@ function ImageSlider({ images }: { images: string[] }) {
     };
   }, [images.length]);
 
-  const goTo = (i: number) => setIndex(((i % images.length) + images.length) % images.length);
+  const goTo = (i: number) =>
+    setIndex(((i % images.length) + images.length) % images.length);
   const prev = () => goTo(index - 1);
   const next = () => goTo(index + 1);
 
   return (
     <div className="relative w-full max-w-md mx-auto">
-      <div className="relative bg-white border border-[#276A96]/15 shadow-2xl rounded-2xl p-3 overflow-hidden">
-        <span className="absolute top-5 left-5 z-10 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/95 border border-[#276A96]/15 shadow-sm text-[10px] font-bold uppercase tracking-wider text-[#276A96]">
+      <div className="relative bg-white border border-[#276A96]/15 shadow-2xl rounded-none p-3 overflow-hidden">
+        <span className="absolute top-5 left-5 z-10 inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-white/95 border border-[#276A96]/15 shadow-sm text-[10px] font-bold uppercase tracking-wider text-[#276A96]">
           <ShieldCheck className="w-3 h-3 text-[#279ECE]" />
           Machine Plastic Parts
         </span>
 
-        <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-[#F8FAFC]">
+        <div className="relative w-full aspect-[4/3] overflow-hidden rounded-none bg-[#F8FAFC]">
           {images.map((src, i) => (
             <img
               key={src + i}
@@ -269,7 +337,7 @@ function ImageSlider({ images }: { images: string[] }) {
             type="button"
             onClick={prev}
             aria-label="Previous image"
-            className="absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/90 border border-[#276A96]/20 flex items-center justify-center text-[#276A96] hover:bg-[#279ECE] hover:text-white transition-colors duration-200 shadow-md"
+            className="absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-sm bg-white/90 border border-[#276A96]/20 flex items-center justify-center text-[#276A96] hover:bg-[#279ECE] hover:text-white transition-colors duration-200 shadow-md"
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
@@ -277,7 +345,7 @@ function ImageSlider({ images }: { images: string[] }) {
             type="button"
             onClick={next}
             aria-label="Next image"
-            className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/90 border border-[#276A96]/20 flex items-center justify-center text-[#276A96] hover:bg-[#279ECE] hover:text-white transition-colors duration-200 shadow-md"
+            className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-sm bg-white/90 border border-[#276A96]/20 flex items-center justify-center text-[#276A96] hover:bg-[#279ECE] hover:text-white transition-colors duration-200 shadow-md"
           >
             <ChevronRight className="w-4 h-4" />
           </button>
@@ -290,16 +358,18 @@ function ImageSlider({ images }: { images: string[] }) {
               key={i}
               onClick={() => goTo(i)}
               aria-label={`Go to image ${i + 1}`}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                i === index ? "w-6 bg-[#279ECE]" : "w-2 bg-[#276A96]/20 hover:bg-[#279ECE]/50"
+              className={`h-2 rounded-sm transition-all duration-300 ${
+                i === index
+                  ? "w-6 bg-[#279ECE]"
+                  : "w-2 bg-[#276A96]/20 hover:bg-[#279ECE]/50"
               }`}
             />
           ))}
         </div>
       </div>
 
-      <div className="absolute -bottom-5 -right-5 w-24 h-24 bg-[#279ECE]/10 rounded-2xl -z-10 hidden lg:block" />
-      <div className="absolute -top-5 -left-5 w-20 h-20 border-2 border-[#279ECE]/20 rounded-2xl -z-10 hidden lg:block" />
+      <div className="absolute -bottom-5 -right-5 w-24 h-24 bg-[#279ECE]/10 rounded-none -z-10 hidden lg:block" />
+      <div className="absolute -top-5 -left-5 w-20 h-20 border-2 border-[#279ECE]/20 rounded-none -z-10 hidden lg:block" />
     </div>
   );
 }
@@ -326,7 +396,7 @@ function ProductTabs({
             type="button"
             key={p.id}
             onClick={() => onSelect(p.id)}
-            className={`px-4 py-3.5 text-sm font-semibold text-center border-2 rounded-xl transition-all duration-200 ${
+            className={`px-4 py-3.5 text-sm font-semibold text-center border-2 rounded-none transition-all duration-200 ${
               isActive
                 ? "bg-gradient-to-br from-[#279ECE] to-[#1f7fa8] border-[#279ECE] text-white shadow-lg shadow-[#279ECE]/30 -translate-y-0.5"
                 : "bg-white border-[#276A96]/15 text-[#1E293B] hover:border-[#279ECE] hover:text-[#279ECE] hover:bg-[#279ECE]/5 hover:-translate-y-0.5"
@@ -344,8 +414,6 @@ function ProductTabs({
    TECHNICAL CHARACTERISTICS
 ==================================================== */
 
-
-
 /* ====================================================
    APPLICATIONS GRID
 ==================================================== */
@@ -361,12 +429,14 @@ function ApplicationsGrid({ items }: { items: string[] }) {
             className="group relative p-5 bg-white border border-[#276A96]/10 border-l-4 border-l-[#279ECE] rounded-r-xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
           >
             <div className="flex items-center gap-4 relative z-10">
-              <div className="w-12 h-12 rounded-lg bg-[#279ECE]/10 flex items-center justify-center group-hover:bg-[#279ECE] transition-colors duration-300 shrink-0">
+              <div className="w-12 h-12 rounded-none bg-[#279ECE]/10 flex items-center justify-center group-hover:bg-[#279ECE] transition-colors duration-300 shrink-0">
                 <Icon className="w-6 h-6 text-[#279ECE] group-hover:text-white transition-colors duration-300" />
               </div>
-              <p className="font-semibold text-[#1E293B] text-sm leading-snug">{item}</p>
+              <p className="font-semibold text-[#1E293B] text-sm leading-snug">
+                {item}
+              </p>
             </div>
-            <div className="absolute -right-6 -bottom-6 w-20 h-20 bg-[#279ECE]/5 rounded-full group-hover:scale-125 transition-transform duration-300" />
+            <div className="absolute -right-6 -bottom-6 w-20 h-20 bg-[#279ECE]/5 rounded-sm group-hover:scale-125 transition-transform duration-300" />
           </div>
         );
       })}
@@ -380,7 +450,7 @@ function ApplicationsGrid({ items }: { items: string[] }) {
 
 function SpecificationTable({ specs }: { specs: ProductSpecification[] }) {
   return (
-    <div className="border border-[#276A96]/15 rounded-xl overflow-hidden shadow-sm">
+    <div className="border border-[#276A96]/15 rounded-none overflow-hidden shadow-sm">
       <table className="w-full text-left">
         <thead>
           <tr className="bg-gradient-to-r from-[#276A96] to-[#1f5a80]">
@@ -417,9 +487,12 @@ function SpecificationTable({ specs }: { specs: ProductSpecification[] }) {
 ==================================================== */
 
 export default function ProductMachinePartsPage() {
-  const [selectedProduct, setSelectedProduct] = useState<string>(PRODUCT_MACHINE_PARTS[0].id);
+  const [selectedProduct, setSelectedProduct] = useState<string>(
+    PRODUCT_MACHINE_PARTS[0].id,
+  );
   const product =
-    PRODUCT_MACHINE_PARTS.find((p) => p.id === selectedProduct) ?? PRODUCT_MACHINE_PARTS[0];
+    PRODUCT_MACHINE_PARTS.find((p) => p.id === selectedProduct) ??
+    PRODUCT_MACHINE_PARTS[0];
   const heroTitle = product.displayName ?? product.name;
 
   return (
@@ -439,8 +512,8 @@ export default function ProductMachinePartsPage() {
         key={`hero-${product.id}`}
         className="relative overflow-hidden bg-gradient-to-b from-[#F8FAFC] to-white border-b border-[#276A96]/10 py-16 fade-in-section"
       >
-        <div className="absolute top-0 right-0 w-[28rem] h-[28rem] bg-[#279ECE]/10 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#276A96]/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[28rem] h-[28rem] bg-[#279ECE]/10 rounded-sm blur-3xl -translate-y-1/3 translate-x-1/4 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#276A96]/5 rounded-sm blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="flex flex-col md:flex-row gap-12 lg:gap-16 items-center">
@@ -464,12 +537,14 @@ export default function ProductMachinePartsPage() {
                 {product.technicalCharacteristics.map((f) => (
                   <div
                     key={f}
-                    className="flex items-center gap-3 p-3 bg-white border border-[#276A96]/10 rounded-lg hover:border-[#279ECE]/40 hover:shadow-md transition-all duration-200"
+                    className="flex items-center gap-3 p-3 bg-white border border-[#276A96]/10 rounded-none hover:border-[#279ECE]/40 hover:shadow-md transition-all duration-200"
                   >
-                    <span className="w-6 h-6 rounded-full bg-[#279ECE] flex items-center justify-center shrink-0">
+                    <span className="w-6 h-6 rounded-sm bg-[#279ECE] flex items-center justify-center shrink-0">
                       <CheckCircle2 className="w-3.5 h-3.5 text-white" />
                     </span>
-                    <span className="text-sm font-medium text-[#1E293B] leading-snug">{f}</span>
+                    <span className="text-sm font-medium text-[#1E293B] leading-snug">
+                      {f}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -477,13 +552,13 @@ export default function ProductMachinePartsPage() {
               <div className="flex flex-wrap gap-3">
                 <button
                   type="button"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#279ECE] to-[#1f7fa8] text-white text-sm font-semibold rounded-lg hover:shadow-lg hover:shadow-[#279ECE]/30 hover:-translate-y-0.5 transition-all duration-200"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#279ECE] to-[#1f7fa8] text-white text-sm font-semibold rounded-none hover:shadow-lg hover:shadow-[#279ECE]/30 hover:-translate-y-0.5 transition-all duration-200"
                 >
                   Request Quote <ArrowRight className="w-4 h-4" />
                 </button>
                 <button
                   type="button"
-                  className="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#276A96]/25 text-[#276A96] text-sm font-semibold rounded-lg hover:border-[#279ECE] hover:text-[#279ECE] hover:bg-[#279ECE]/5 transition-colors duration-200"
+                  className="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#276A96]/25 text-[#276A96] text-sm font-semibold rounded-none hover:border-[#279ECE] hover:text-[#279ECE] hover:bg-[#279ECE]/5 transition-colors duration-200"
                 >
                   Download Datasheet <Download className="w-4 h-4" />
                 </button>
@@ -498,39 +573,64 @@ export default function ProductMachinePartsPage() {
       </section>
 
       {/* TAB SECTION (stable, does not re-animate on product change) */}
-      <section className="bg-[#F8FAFC] border-b border-[#276A96]/10 py-10">
-        <div className="max-w-7xl mx-auto px-6">
-          <SectionEyebrow icon={Boxes}>Explore Our Range</SectionEyebrow>
-          <h2 className="text-2xl font-bold text-[#0F2A3D] mb-6">Machine Plastic Products</h2>
-          <ProductTabs
-            products={PRODUCT_MACHINE_PARTS}
-            selectedId={selectedProduct}
-            onSelect={setSelectedProduct}
-          />
-        </div>
-      </section>
+      <section className="max-w-7xl mx-auto px-6 py-16">
 
-      {/* DETAIL SECTIONS (dynamic per selected product) */}
-      <section key={`detail-${product.id}`} className="max-w-7xl mx-auto px-6 py-16 fade-in-section">
+    <div className="grid lg:grid-cols-[340px_1fr] gap-14">
+
+        <div className="hidden lg:block">
+
+            <ProductSidebar
+                products={PRODUCT_MACHINE_PARTS}
+                selectedId={selectedProduct}
+                onSelect={setSelectedProduct}
+            />
+
+        </div>
+
+        <div>
+          {/* DETAIL SECTIONS (dynamic per selected product) */}
+      <section
+        key={`detail-${product.id}`}
+        className="max-w-7xl mx-auto px-6 py-8 fade-in-section"
+      >
+
+        <div className="block lg:hidden mb-12">
+    <ProductSidebar
+        products={PRODUCT_MACHINE_PARTS}
+        selectedId={selectedProduct}
+        onSelect={setSelectedProduct}
+    />
+</div>
         {/* Technical Characteristics */}
 
         {/* Specifications */}
-        <div className= "mb-16">
+        <div className="mb-16">
           <SectionEyebrow icon={Layers}>Specifications</SectionEyebrow>
-          <h3 className="text-2xl font-bold text-[#0F2A3D] mb-7">Technical Data Sheet</h3>
+          <h3 className="text-2xl font-bold text-[#0F2A3D] mb-7">
+            Technical Data Sheet
+          </h3>
           <SpecificationTable specs={product.specifications} />
         </div>
-        
 
         {/* Applications */}
-        <div className="mb-16 p-8 sm:p-10 bg-[#F8FAFC] rounded-2xl border border-[#276A96]/10">
+        <div className="mb-16 p-8 sm:p-10 bg-[#F8FAFC] rounded-none border border-[#276A96]/10">
           <SectionEyebrow icon={Boxes}>Applications</SectionEyebrow>
-          <h3 className="text-2xl font-bold text-[#0F2A3D] mb-7">Where It's Used</h3>
+          <h3 className="text-2xl font-bold text-[#0F2A3D] mb-7">
+            Where It's Used
+          </h3>
           <ApplicationsGrid items={product.applications} />
         </div>
-
-        
       </section>
+
+            
+
+        </div>
+
+    </div>
+
+</section>
+
+      
     </div>
   );
 }
