@@ -375,42 +375,6 @@ function ImageSlider({ images }: { images: string[] }) {
 }
 
 /* ====================================================
-   PRODUCT TABS
-==================================================== */
-
-function ProductTabs({
-  products,
-  selectedId,
-  onSelect,
-}: {
-  products: MachinePart[];
-  selectedId: string;
-  onSelect: (id: string) => void;
-}) {
-  return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-      {products.map((p) => {
-        const isActive = p.id === selectedId;
-        return (
-          <button
-            type="button"
-            key={p.id}
-            onClick={() => onSelect(p.id)}
-            className={`px-4 py-3.5 text-sm font-semibold text-center border-2 rounded-none transition-all duration-200 ${
-              isActive
-                ? "bg-gradient-to-br from-[#279ECE] to-[#1f7fa8] border-[#279ECE] text-white shadow-lg shadow-[#279ECE]/30 -translate-y-0.5"
-                : "bg-white border-[#276A96]/15 text-[#1E293B] hover:border-[#279ECE] hover:text-[#279ECE] hover:bg-[#279ECE]/5 hover:-translate-y-0.5"
-            }`}
-          >
-            {p.name}
-          </button>
-        );
-      })}
-    </div>
-  );
-}
-
-/* ====================================================
    TECHNICAL CHARACTERISTICS
 ==================================================== */
 
